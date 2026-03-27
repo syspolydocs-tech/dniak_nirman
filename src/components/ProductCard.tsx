@@ -66,7 +66,7 @@ export function ProductCard({ product, onAddToCart, onWishlistToggle, onBuyNow }
   return (
     <Link  className="block">
       <Card 
-        className={`group relative overflow-hidden transition-all duration-300 hover:shadow-lg ${isHovered ? 'scale-[1.02]' : ''}`}
+        className={`group relative overflow-hidden transition-all duration-300 hover:shadow-lg ₹{isHovered ? 'scale-[1.02]' : ''}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -97,7 +97,7 @@ export function ProductCard({ product, onAddToCart, onWishlistToggle, onBuyNow }
             <Button
               variant="ghost"
               size="sm"
-              className={`absolute top-2 right-2 h-8 w-8 p-0 transition-all duration-200 ${
+              className={`absolute top-2 right-2 h-8 w-8 p-0 transition-all duration-200 ₹{
                 isWishlisted 
                   ? 'bg-red-500 text-white hover:bg-red-600' 
                   : 'bg-background/80 hover:bg-background'
@@ -108,12 +108,12 @@ export function ProductCard({ product, onAddToCart, onWishlistToggle, onBuyNow }
               }}
             >
               <Heart 
-                className={`h-4 w-4 ${isWishlisted ? 'fill-current' : ''}`} 
+                className={`h-4 w-4 ₹{isWishlisted ? 'fill-current' : ''}`} 
               />
             </Button>
 
             {/* Add to Cart Button - Shows on hover */}
-            <div className={`absolute bottom-2 left-2 right-2 transition-all duration-300 ${
+            <div className={`absolute bottom-2 left-2 right-2 transition-all duration-300 ₹{
               isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
             }`}>
               <Button 
@@ -142,7 +142,7 @@ export function ProductCard({ product, onAddToCart, onWishlistToggle, onBuyNow }
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-3 w-3 ${
+                    className={`h-3 w-3 ₹{
                       i < Math.floor(product.rating)
                         ? 'text-yellow-400 fill-current'
                         : 'text-gray-300'
@@ -157,10 +157,10 @@ export function ProductCard({ product, onAddToCart, onWishlistToggle, onBuyNow }
 
             {/* Price */}
             <div className="flex items-center gap-2">
-              <span className="font-bold">${product.price}</span>
+              <span className="font-bold">₹{product.price}</span>
               {product.originalPrice && (
                 <span className="text-sm text-muted-foreground line-through">
-                  ${product.originalPrice}
+                  ₹{product.originalPrice}
                 </span>
               )}
             </div>
